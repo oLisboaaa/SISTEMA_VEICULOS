@@ -8,19 +8,25 @@ class Skate extends Veiculo {
         this.rodas = rodas;
     }
 
-
     public String getMarca() {
         return marca;
     }
+
     public void setMarca(String marca) {
+        if (marca == null) {
+            throw new IllegalArgumentException("Marca não pode estar vazia");
+        }
         this.marca = marca;
     }
-
 
     public String getRodas() {
         return rodas;
     }
+
     public void setRodas(String rodas) {
+        if (rodas == null) {
+            throw new IllegalArgumentException("Rodas não pode estar vazia");
+        }
         this.rodas = rodas;
     }
 }
