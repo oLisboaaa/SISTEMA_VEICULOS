@@ -21,7 +21,7 @@ Baixe e instale sua IDE pelo site oficial.
 
 * Clone este repositório para sua máquina local:
 ```
-git clone https://github.com/seu_usuario/seu_repositorio.git
+git clone https://github.com/oLisboaaa/HERANCA_3
 ```
 * Abra o projeto na sua IDE.
 * Compile e execute a classe Testes para testar a criação dos veículos e a geração dos comandos SQL.
