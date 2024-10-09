@@ -1,34 +1,50 @@
+// Classe Concessionaria para executar o código
 public class Concessionaria {
-    public static void main(String[] args) {
-        // Criando instâncias de diferentes tipos de veículos
-        Veiculo carro = new Domestico("Fusca", 1970, "Volkswagen", "azul", 50000.0f, 5, "disco", 2);
-        Veiculo moto = new Motocicleta("CB500", 2021, "Honda", "vermelha", 1500.0f, 500, 50);
-        Veiculo skate = new Skate("Skate X", 2023, "SkateBrand", "preto", 0.0f, "SkateCo", "72mm");
-        Veiculo caminhao = new Caminhao("Volvo FH", 2018, "Volvo", "branco", 120000.0f, 3, 18.5f);
-        Veiculo bicicleta = new Bicicleta("Caloi", 2022, "Caloi", "verde", 0.0f, "Caloi", "alumínio", 18, "ar");
+        public static void main(String[] args) {
+                try {
+                        // Criação de um veículo doméstico e impressão do comando SQL
+                        Veiculo domestico = new Domestico("Fusca", 1975, "Volkswagen", "azul", 30000.0, 5, "disco", 4);
+                        System.out.println(domestico.toInsertSQL());
+                } catch (IllegalArgumentException e) {
+                        // Captura e exibe exceções durante a criação do veículo doméstico
+                        System.out.println("Erro ao criar veículo doméstico: " + e.getMessage());
+                }
 
-        // Exibindo as informações dos veículos
-        System.out.println("Carro: " + carro.getModelo() + ", Montadora: " + carro.getMontadora() + ", Ano: "
-                + carro.getAnoFab());
-        System.out.println("Moto: " + moto.getModelo() + ", Montadora: " + moto.getMontadora() + ", Ano: "
-                + moto.getAnoFab());
-        System.out.println("Skate: " + skate.getModelo() + ", Montadora: " + skate.getMontadora() + ", Ano: "
-                + skate.getAnoFab());
-        System.out.println("Caminhao: " + caminhao.getModelo() + ", Montadora: " + caminhao.getMontadora() + ", Ano: "
-                + caminhao.getAnoFab());
-        System.out.println("Bicicleta: " + bicicleta.getModelo() + ", Montadora: " + bicicleta.getMontadora()
-                + ", Ano: " + bicicleta.getAnoFab());
+                try {
+                        // Criação de uma motocicleta e impressão do comando SQL
+                        Veiculo moto = new Motocicleta("CB500", 2020, "Honda", "vermelha", 12000.0, 500, 40);
+                        System.out.println(moto.toInsertSQL());
+                } catch (IllegalArgumentException e) {
+                        // Captura e exibe exceções durante a criação da motocicleta
+                        System.out.println("Erro ao criar motocicleta: " + e.getMessage());
+                }
 
-        // Exibindo informações adicionais
-        System.out.println("\nInformações adicionais:");
-        System.out.println("Carro - Cor: " + carro.getCor() + ", Quilometragem: " + carro.getKm() + " km, Airbags: "
-                + ((Domestico) carro).getAirbag());
-        System.out.println("Motocicleta - CC: " + ((Motocicleta) moto).getCc() + ", Torque: "
-                + ((Motocicleta) moto).getTorque() + " Nm");
-        System.out.println("Skate - Marca: " + ((Skate) skate).getMarca() + ", Rodas: " + ((Skate) skate).getRodas());
-        System.out.println("Caminhão - Eixos: " + ((Caminhao) caminhao).getQuantEixo() + ", Peso Bruto: "
-                + ((Caminhao) caminhao).getPesoB() + " Ton");
-        System.out.println("Bicicleta - Marca: " + ((Bicicleta) bicicleta).getMarca() + ", Material: "
-                + ((Bicicleta) bicicleta).getMaterial() + ", Marchas: " + ((Bicicleta) bicicleta).getQuantMarchas());
-    }
+                try {
+                        // Criação de um skate e impressão do comando SQL
+                        Veiculo skate = new Skate("Skate Pro", 2022, "Skate Co", "preto", 0.0, "Skate Co", "72mm");
+                        System.out.println(skate.toInsertSQL());
+                } catch (IllegalArgumentException e) {
+                        // Captura e exibe exceções durante a criação do skate
+                        System.out.println("Erro ao criar skate: " + e.getMessage());
+                }
+
+                try {
+                        // Criação de um caminhão e impressão do comando SQL
+                        Veiculo caminhao = new Caminhao("Volvo FH", 2018, "Volvo", "branco", 120000.0, 3, 18.5);
+                        System.out.println(caminhao.toInsertSQL());
+                } catch (IllegalArgumentException e) {
+                        // Captura e exibe exceções durante a criação do caminhão
+                        System.out.println("Erro ao criar caminhão: " + e.getMessage());
+                }
+
+                try {
+                        // Criação de uma bicicleta e impressão do comando SQL
+                        Veiculo bicicleta = new Bicicleta("Caloi", 2022, "Caloi", "verde", 0.0, "Caloi", "alumínio", 18,
+                                        "ar");
+                        System.out.println(bicicleta.toInsertSQL());
+                } catch (IllegalArgumentException e) {
+                        // Captura e exibe exceções durante a criação da bicicleta
+                        System.out.println("Erro ao criar bicicleta: " + e.getMessage());
+                }
+        }
 }

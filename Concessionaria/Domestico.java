@@ -1,56 +1,66 @@
+// Classe Domestico que herda de Veiculo
 class Domestico extends Veiculo {
-    private int quantMax;
-    private String tipFreio;
-    private int airbag;
+    private int quantMax; // Quantidade máxima de passageiros
+    private String tipFreio; // Tipo de freio
+    private int airbag; // Quantidade de airbags
 
-    public Domestico(String modelo, int anoFab, String montadora, String cor, float km, int quantMax, String tipFreio,
+    // Construtor para inicializar os atributos do veículo doméstico
+    public Domestico(String modelo, int anoFab, String montadora, String cor, double km, int quantMax, String tipFreio,
             int airbag) {
-        super(modelo, anoFab, montadora, cor, km);
-        this.quantMax = quantMax;
-        this.tipFreio = tipFreio;
-        this.airbag = airbag;
+        super(modelo, anoFab, montadora, cor, km); // Chama o construtor da classe pai
+        setQuantMax(quantMax); // Define a quantidade máxima de passageiros usando o setter
+        setTipFreio(tipFreio); // Define o tipo de freio usando o setter
+        setAirbag(airbag); // Define a quantidade de airbags usando o setter
     }
 
+    // Métodos getters e setters para os atributos específicos do veículo doméstico
+
     public int getQuantMax() {
-        return quantMax;
+        return quantMax; // Retorna a quantidade máxima de passageiros
     }
 
     public void setQuantMax(int quantMax) {
-
+        // Valida se a quantidade máxima está entre 2 e 8
         if (quantMax < 2 || quantMax > 8) {
-            throw new IllegalArgumentException("quantidade maxima de pessoas invalida!");
+            throw new IllegalArgumentException("Quantidade máxima de pessoas inválida! Deve ser entre 2 e 8.");
         }
-
-        this.quantMax = quantMax;
+        this.quantMax = quantMax; // Atribui a quantidade máxima de passageiros
     }
 
     public String getTipFreio() {
-        return tipFreio;
+        return tipFreio; // Retorna o tipo de freio
     }
 
     public void setTipFreio(String tipFreio) {
-        if (tipFreio == null) {
-            throw new IllegalArgumentException("Tipo de freio não pode estar vazia");
+        // Valida se o tipo de freio não é nulo ou vazio
+        if (tipFreio == null || tipFreio.trim().isEmpty()) {
+            throw new IllegalArgumentException("Tipo de freio não pode estar vazio");
         }
-
-        if (tipFreio != "disco" || tipFreio != "tambor") {
-            throw new IllegalArgumentException("os freios devem ser a disco ou a tambor");
+        // Valida se o tipo de freio é disco ou tambor
+        if (!tipFreio.equalsIgnoreCase("disco") && !tipFreio.equalsIgnoreCase("tambor")) {
+            throw new IllegalArgumentException("Os freios devem ser a disco ou a tambor");
         }
-
-        this.tipFreio = tipFreio;
+        this.tipFreio = tipFreio; // Atribui o tipo de freio
     }
 
     public int getAirbag() {
-        return airbag;
+        return airbag; // Retorna a quantidade de airbags
     }
 
     public void setAirbag(int airbag) {
-
+        // Valida se a quantidade de airbags é maior que 1
         if (airbag < 2) {
-            throw new IllegalArgumentException(
-                    "quantidade de airbags invalida, o minimo estabelecido pelo CONTRAN sao 2 airbags");
+            throw new IllegalArgumentException("Quantidade mínima de airbags é 2, conforme a legislação.");
         }
+        this.airbag = airbag; // Atribui a quantidade de airbags
+    }
 
-        this.airbag = airbag;
+    // Sobrescrita do método toInsertSQL para incluir atributos do veículo doméstico
+    @Override
+    public String toInsertSQL() {
+        return "INSERT INTO " + this.getClass().getSimpleName()
+                + " (modelo, anoFab, montadora, cor, km, quantMax, tipFreio, airbag) VALUES ('" +
+                getModelo() + "', " + getAnoFab() + ", '" + getMontadora() + "', '" +
+                getCor() + "', " + getKm() + ", " + quantMax + ", '" + tipFreio + "', " + airbag + ");";
     }
 }
