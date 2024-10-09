@@ -1,4 +1,4 @@
-# Herança 3
+# Sistema Veiculos
 
 Este projeto é uma implementação em Java de um sistema para gerenciar diferentes tipos de veículos, incluindo carros, motocicletas, skates, caminhões e bicicletas. Ele permite a criação de objetos representando veículos e gera comandos SQL para inserção desses dados em um banco de dados.
 
@@ -21,7 +21,7 @@ Baixe e instale sua IDE pelo site oficial.
 
 * Clone este repositório para sua máquina local:
 ```
-git clone https://github.com/oLisboaaa/HERANCA_3
+git clone https://github.com/oLisboaaa/SISTEMA_VEICULOS
 ```
 * Abra o projeto na sua IDE.
 * Compile e execute a classe Testes para testar a criação dos veículos e a geração dos comandos SQL.
@@ -34,4 +34,4 @@ git clone https://github.com/oLisboaaa/HERANCA_3
 
 ## ✒️ Autores
 
-* **Marcelo Lisboa** - *Trabalho Inicial* - Herança 3
+* **Marcelo Lisboa** - *Trabalho Inicial* - Sistema Veiculos
